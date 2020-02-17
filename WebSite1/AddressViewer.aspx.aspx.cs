@@ -9,8 +9,8 @@ public partial class AddressViewer_aspx : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsAddress AnAddress = new clsAddress();
-        AnAddress = (clsAddress)Session["AnAddress"];
-        Response.Write(AnAddress.House);
+        //clsAddress AnAddress = new clsAddress();
+        //AnAddress = (clsAddress)Session["AnAddress"];
+        //Response.Write(AnAddress.House);
     }
 }
