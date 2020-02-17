@@ -9,10 +9,10 @@ public partial class AnAddres : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Create a new instane of clsAddress
-        clsAddress AnAddress = new clsAddress();
-        AnAddress.HouseNo = txtHouse.Text;
-        Session["AnAddress"] = AnAddress;
-        Response.Redirect("AddressViewer.aspx");
+        ////Create a new instane of clsAddress
+        //clsAddress AnAddress = new clsAddress();
+        //AnAddress.HouseNo = txtHouse.Text;
+        //Session["AnAddress"] = AnAddress;
+        //Response.Redirect("AddressViewer.aspx");
     }
 }

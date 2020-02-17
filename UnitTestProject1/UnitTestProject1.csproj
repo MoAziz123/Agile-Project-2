@@ -50,13 +50,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsAddress.cs" />
-    <Compile Include="clsOrder.cs" />
+    <Compile Include="xclsOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tstorder.cs" />
     <Compile Include="tststock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary2\ClassLibrary2.csproj">
+      <Project>{E0443013-CC40-41B1-B08B-3E095F83443E}</Project>
+      <Name>ClassLibrary2</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
