@@ -15,35 +15,36 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:Label ID="Label1" runat="server" Height="20px" Text="House No/Name" Width="150px"></asp:Label>
-            <asp:TextBox ID="txtHouse" runat="server"></asp:TextBox>
+            <asp:Label ID="Label1" runat="server" Height="20px" Text="Product ID" Width="150px"></asp:Label>
+            <asp:TextBox ID="txtProductID" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="Label2" runat="server" Height="20px" Text="Street" Width="150px"></asp:Label>
-            <asp:TextBox ID="txtStreet" runat="server"></asp:TextBox>
+            <asp:Label ID="Label2" runat="server" Height="20px" Text="Product Name" Width="150px"></asp:Label>
+            <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="Label3" runat="server" Height="20px" Text="Postcode" Width="150px"></asp:Label>
-            <asp:TextBox ID="txtPostcode" runat="server"></asp:TextBox>
+            <asp:Label ID="Label3" runat="server" Height="20px" Text="Product Type" Width="150px"></asp:Label>
+            <asp:TextBox ID="txtProductType" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="Label4" runat="server" Height="20px" Text="County" Width="150px"></asp:Label>
-            <asp:DropDownList ID="DropDownList1" runat="server">
-            </asp:DropDownList>
+            <asp:Label ID="Label4" runat="server" Height="20px" Text="Product Description" Width="150px"></asp:Label>
+            <asp:TextBox ID="txtProductDescription" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="Label5" runat="server" Height="20px" Text="Date added" Width="150px"></asp:Label>
-            <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
+            <asp:Label ID="Label5" runat="server" Height="20px" Text="Product Quantity" Width="150px"></asp:Label>
+            <asp:TextBox ID="txtProductQuantity" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="Label6" runat="server" Height="20px" Text="Price" Width="150px"></asp:Label>
+            <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:CheckBox ID="Active" runat="server" />
         </p>
         <p>
-            <asp:Button ID="btnOK" runat="server" Height="20px" Text="OK" Width="75px" />
+            <asp:Button ID="btnOK" runat="server" Height="20px" Text="OK" Width="75px" OnClick="btnOK_Click" />
             <asp:Button ID="btnCancel" runat="server" Height="20px" Text="Cancel" Width="75px" />
         </p>
-        <p>
-            &nbsp;</p>
         <p>
             &nbsp;</p>
         <p>

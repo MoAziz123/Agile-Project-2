@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClassLibrary2;
 
 public partial class AddressViewer_aspx : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsAddress AnAddress = new clsAddress();
-        AnAddress = (clsAddress)Session["AnAddress"];
-        Response.Write(AnAddress.House);
+        clsStock AnAddress = new clsStock();
+        AnAddress = (clsStock)Session["AnAddress"];
+        Response.Write(AnAddress.HouseNo);
     }
 }
