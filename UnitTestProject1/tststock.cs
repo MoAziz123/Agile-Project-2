@@ -109,5 +109,30 @@ namespace UnitTestProject1
             Assert.AreEqual(AnAddress.Town, TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsAddress AnAddress = new clsAddress();
+            Boolean Found = false;
+            Int32 AddressNo = 1;
+            Found = AnAddress.Find(AddressNo);
+        }
+
+        [TestMethod]
+        public void TestAddressNoFound()
+        {
+            clsAddress AnAddress = new clsAddress();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 AddressNo = 21;
+            Found = AnAddress.Find(AddressNo);
+            if (AnAddress.AddressNo != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
     }
 }
