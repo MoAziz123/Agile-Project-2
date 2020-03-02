@@ -9,105 +9,69 @@ namespace UnitTestProject1
         [TestMethod]
         public void InstanceOK()
         {
-            clsAddress AnAddress = new clsAddress();
-            Assert.IsNotNull(AnAddress);
+            clsStock Stock = new clsStock();
+            Assert.IsNotNull(Stock);
         }
 
         [TestMethod]
-        public void ActivePropertyOK()
+        public void AddedProduct_IDOK()
         {
-            clsAddress AnAddress = new clsAddress();
-            Boolean TestData = true;
-            AnAddress.Active = TestData;
-            Assert.AreEqual(AnAddress.Active, TestData);
-        }
-
-        [TestMethod]
-        public void DataAddedPropertyOK()
-        {
-            clsAddress AnAddress = new clsAddress();
-            DateTime TestData = DateTime.Now.Date;
-            AnAddress.DateAdded = TestData;
-            Assert.AreEqual(AnAddress.DateAdded, TestData);
-        }
-
-        [TestMethod]
-        public void AddressNoPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
-            //create some test data to assign to the property
+            clsStock Stock = new clsStock();
             Int32 TestData = 1;
-            //assign the data to the property
-            AnAddress.AddressNo = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.AddressNo, TestData);
+            Stock.Product_ID = TestData;
+            Assert.AreEqual(Stock.Product_ID, TestData);
         }
 
         [TestMethod]
-        public void CountyNoPropertyOK()
+        public void Product_NameOK()
         {
             //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
+            clsStock Stock = new clsStock();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            String TestData = "2kg protien powder";
             //assign the data to the property
-            AnAddress.CountyNo = TestData;
+            Stock.Product_Name = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.CountyNo, TestData);
+            Assert.AreEqual(Stock.Product_Name, TestData);
         }
 
         [TestMethod]
-        public void HouseNoPropertyOK()
+        public void Product_TypeyOK()
         {
             //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
+            clsStock Stock = new clsStock();
             //create some test data to assign to the property
-            string TestData = "21b";
+            String TestData = "Protien Poweder";
             //assign the data to the property
-            AnAddress.HouseNo = TestData;
+            Stock.Product_Type = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.HouseNo, TestData);
+            Assert.AreEqual(Stock.Product_Type, TestData);
         }
 
         [TestMethod]
-        public void PostCodePropertyOK()
+        public void Product_DescriptionOK()
         {
             //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
+            clsStock Stock = new clsStock();
             //create some test data to assign to the property
-            string TestData = "LE1 4AB";
+            string TestData = "25gram of protien per scoop, which contains 30grams.";
             //assign the data to the property
-            AnAddress.PostCode = TestData;
+            Stock.Product_Description = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.PostCode, TestData);
+            Assert.AreEqual(Stock.Product_Description, TestData);
         }
 
         [TestMethod]
-        public void StreetPropertyOK()
+        public void QuantityOK()
         {
             //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
+            clsStock Stock = new clsStock();
             //create some test data to assign to the property
-            string TestData = "Some Street";
+            Int32 TestData = 259;
             //assign the data to the property
-            AnAddress.Street = TestData;
+            Stock.Quantity = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.Street, TestData);
+            Assert.AreEqual(Stock.Quantity, TestData);
         }
-
-        [TestMethod]
-        public void TownPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
-            //create some test data to assign to the property
-            string TestData = "Leicester";
-            //assign the data to the property
-            AnAddress.Town = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.Town, TestData);
-        }
-
     }
 }
