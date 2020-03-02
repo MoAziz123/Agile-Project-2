@@ -8,6 +8,7 @@ namespace ClassLibrary2
         private int product_id;
         private string product_name;
         private int order_quantity;
+        private bool dispatch;
         private System.DateTime date_ordered;
 
         public clsOrder()
@@ -24,7 +25,7 @@ namespace ClassLibrary2
             this.customer_id = customer_id;
             this.product_id = product_id;
             this.product_name = product_name;
-            this.Dispatch = dispatch;
+            this.dispatch = dispatch;
             this.order_quantity = order_quantity;
             this.date_ordered = date_ordered;
         }
@@ -53,7 +54,11 @@ namespace ClassLibrary2
 
         }
 
-        public bool Dispatch { get; set; }
+        public bool Dispatch {
+            get {return dispatch; }
+            set { this.dispatch = value; }
+            
+        }
         public System.DateTime Date_Ordered
         {
             get { return date_ordered; }
