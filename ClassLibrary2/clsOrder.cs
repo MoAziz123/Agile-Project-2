@@ -68,9 +68,9 @@ namespace ClassLibrary2
         public bool find(int customer_id)
         {
             clsDataConnection db = new clsDataConnection();
-            db.AddParameter("CustomerID", customer_id);
+            db.AddParameter("@CustomerID", customer_id);
             db.Execute("findProcedureOrder");
-            if(db.Count >= 1)
+            if(db.Count == 1)
             {
                 this.Customer_Id = Convert.ToInt32(db.DataTable.Rows[0]["Customer_ID"]);
                 this.Product_Id = Convert.ToInt32(db.DataTable.Rows[0]["Product_ID"]);

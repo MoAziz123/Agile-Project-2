@@ -29,7 +29,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void CustomerIDOK()
         {
-            Assert.IsNotNull(order.Customer_Id);
+            //Assert.IsNotNull(order.Customer_Id);
             int testdata = 3;
             order.Customer_Id = testdata;
             Assert.AreEqual(order.Customer_Id, testdata);
@@ -80,7 +80,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void FindOK()
         {
-            Assert.IsTrue(order.find(1));
+            Assert.IsTrue(order.find(4));
+            
         }
     }
 }
