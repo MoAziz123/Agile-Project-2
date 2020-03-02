@@ -7,25 +7,24 @@ namespace ClassLibrary2
         private int customer_id;
         private int product_id;
         private string product_name;
-        private bool dispatch;
         private int order_quantity;
         private System.DateTime date_ordered;
 
         public clsOrder()
         {
-            customer_id = 0;
-            product_id = 0;
-            product_name = "";
-            dispatch = false;
-            order_quantity = 0;
-            date_ordered = System.DateTime.Now;
+            Customer_Id = 0;
+            Product_Id = 0;
+            Product_Name = "";
+            Dispatch = false;
+            Order_Quantity = 0;
+            Date_Ordered = System.DateTime.Now;
         }
         public clsOrder(int customer_id, int product_id, string product_name, bool dispatch, int order_quantity, System.DateTime date_ordered)
         {
             this.customer_id = customer_id;
             this.product_id = product_id;
             this.product_name = product_name;
-            this.dispatch = dispatch;
+            this.Dispatch = dispatch;
             this.order_quantity = order_quantity;
             this.date_ordered = date_ordered;
         }
@@ -54,12 +53,7 @@ namespace ClassLibrary2
 
         }
 
-        public bool Dispatch
-        {
-            get { return dispatch; }
-            set { this.dispatch = value; }
-
-        }
+        public bool Dispatch { get; set; }
         public System.DateTime Date_Ordered
         {
             get { return date_ordered; }
