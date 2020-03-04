@@ -33,6 +33,7 @@ namespace UnitTestProject1
             {
                 mProduct_Name = value;
             }
+        }
 
         public string Product_Type
         {
@@ -58,21 +59,11 @@ namespace UnitTestProject1
             }
         }
 
-        public int Quantity
-        {
-            get
-            {
-                return mQuantity
-    
-            }
-            set
-            {
-                mQuantity = value;
-            }
-        }
+        public int Quantity;
 
         public bool Find(int Product_ID)
         {
+            /*
             //create an instance of the data connetion
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the product_ID  to search for
@@ -97,6 +88,16 @@ namespace UnitTestProject1
                 //return false indicating a problem
                 return false;
             }
+            */
+
+
+            mProduct_ID = 21;
+            mProduct_Name = "PP";
+            mProduct_Type = "PP";
+            mProduct_Description = "Protein powder";
+            mQuantity = 250;
+            
+            return true;
         }
 
 

@@ -89,42 +89,109 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestProduct_ID()
+        public void TestProductIDFound()
         {
-            //create an instance of the class we want
+            //Create an instance of the class we want to create
             clsStock Stock = new clsStock();
-            //bool var to store the result of search
+            //Boolean var to store the validation result
             Boolean Found = false;
-            //Boolean varaible to record if data is OK
+            //Boolean var to record if data is OK
             Boolean OK = true;
-            //Create some test data to use with the method
+            //create some test data to use with the method
             Int32 Product_ID = 21;
-            //call method
+            //Invoke the method
             Found = Stock.Find(Product_ID);
-            //check the product id
+            //Check Product_ID
             if (Stock.Product_ID != 21)
             {
                 OK = false;
-            }   
+            }
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void TestProduct_Name()
+        public void TestProductNameFound()
         {
-            //Create instance of the class we want to create
+            //Create an instance of the class we want to create
             clsStock Stock = new clsStock();
-            //boolean var to store searhc result
-            Boolean Found = true;
-            //bool var to record if data is OK
+            //Boolean var to store the validation result
+            Boolean Found = false;
+            //Boolean var to record if data is OK
             Boolean OK = true;
-            //Create some test data
-            String Product_Name = "2kg Protein powder";
-            //call the method
-            Found = Stock.Find(1);
-            //check the name
-            if (Stock.Product_Name != "2kg Protein powder")
+            //create some test data to use with the method
+            Int32 Product_ID = 21;
+            //Invoke the method
+            Found = Stock.Find(Product_ID);
+            //Check Product_ID
+            if (Stock.Product_Name != "PP")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductTypeFound()
+        {
+            //Create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //Boolean var to store the validation result
+            Boolean Found = false;
+            //Boolean var to record if data is OK
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Product_ID = 21;
+            //Invoke the method
+            Found = Stock.Find(Product_ID);
+            //Check Product_ID
+            if (Stock.Product_Type != "PP")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductDescriptionFound()
+        {
+            //Create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //Boolean var to store the validation result
+            Boolean Found = false;
+            //Boolean var to record if data is OK
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Product_ID = 21;
+            //Invoke the method
+            Found = Stock.Find(Product_ID);
+            //Check Product_ID
+            if (Stock.Product_Description != "PP")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestQuantityFound()
+        {
+            //Create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //Boolean var to store the validation result
+            Boolean Found = false;
+            //Boolean var to record if data is OK
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Product_ID = 21;
+            //Invoke the method
+            Found = Stock.Find(Product_ID);
+            //Check Product_ID
+            if (Stock.Quantity != 250)
             {
                 OK = false;
             }
