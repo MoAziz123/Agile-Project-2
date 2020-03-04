@@ -73,5 +73,64 @@ namespace UnitTestProject1
             //test to see that the two values are the same
             Assert.AreEqual(Stock.Quantity, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //Create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //Boolean var to store the validation result
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 Product_ID = 1;
+            //Invoke the method
+            Found = Stock.Find(Product_ID);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestProduct_ID()
+        {
+            //create an instance of the class we want
+            clsStock Stock = new clsStock();
+            //bool var to store the result of search
+            Boolean Found = false;
+            //Boolean varaible to record if data is OK
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 Product_ID = 21;
+            //call method
+            Found = Stock.Find(Product_ID);
+            //check the product id
+            if (Stock.Product_ID != 21)
+            {
+                OK = false;
+            }   
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProduct_Name()
+        {
+            //Create instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //boolean var to store searhc result
+            Boolean Found = true;
+            //bool var to record if data is OK
+            Boolean OK = true;
+            //Create some test data
+            String Product_Name = "2kg Protein powder";
+            //call the method
+            Found = Stock.Find(1);
+            //check the name
+            if (Stock.Product_Name != "2kg Protein powder")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
     }
 }
