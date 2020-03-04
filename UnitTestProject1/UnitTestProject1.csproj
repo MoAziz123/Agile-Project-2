@@ -49,7 +49,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsAddress.cs" />
     <Compile Include="tstorder.cs" />
     <Compile Include="xclsOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
