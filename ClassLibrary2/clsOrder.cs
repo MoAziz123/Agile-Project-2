@@ -7,18 +7,18 @@ namespace ClassLibrary2
         private int customer_id;
         private int product_id;
         private string product_name;
-        private bool dispatch;
         private int order_quantity;
+        private bool dispatch;
         private System.DateTime date_ordered;
 
         public clsOrder()
         {
-            customer_id = 0;
-            product_id = 0;
-            product_name = "";
-            dispatch = false;
-            order_quantity = 0;
-            date_ordered = System.DateTime.Now;
+            Customer_Id = 0;
+            Product_Id = 0;
+            Product_Name = "";
+            Dispatch = false;
+            Order_Quantity = 0;
+            Date_Ordered = System.DateTime.Now;
         }
         public clsOrder(int customer_id, int product_id, string product_name, bool dispatch, int order_quantity, System.DateTime date_ordered)
         {
@@ -54,11 +54,10 @@ namespace ClassLibrary2
 
         }
 
-        public bool Dispatch
-        {
-            get { return dispatch; }
+        public bool Dispatch {
+            get {return dispatch; }
             set { this.dispatch = value; }
-
+            
         }
         public System.DateTime Date_Ordered
         {
@@ -69,9 +68,9 @@ namespace ClassLibrary2
         public bool find(int customer_id)
         {
             clsDataConnection db = new clsDataConnection();
-            db.AddParameter("CustomerID", customer_id);
+            db.AddParameter("@CustomerID", customer_id);
             db.Execute("findProcedureOrder");
-            if(db.Count >= 1)
+            if(db.Count == 1)
             {
                 this.Customer_Id = Convert.ToInt32(db.DataTable.Rows[0]["Customer_ID"]);
                 this.Product_Id = Convert.ToInt32(db.DataTable.Rows[0]["Product_ID"]);
