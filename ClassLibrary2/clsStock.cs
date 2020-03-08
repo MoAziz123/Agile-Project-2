@@ -63,7 +63,7 @@ namespace UnitTestProject1
 
         public bool Find(int Product_ID)
         {
-            /*
+            
             //create an instance of the data connetion
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the product_ID  to search for
@@ -71,7 +71,7 @@ namespace UnitTestProject1
             //execute the stored procedure
             DB.Execute("");
             //if one record is found (there should be either one or zero!!)
-            if (DB.Count == 1) ;
+            if (DB.Count == 1)
             {
                 //copy the data from the database to the private data members
                 mProduct_ID = Convert.ToInt32(DB.DataTable.Rows[0]["Product_ID"]);
@@ -88,9 +88,9 @@ namespace UnitTestProject1
                 //return false indicating a problem
                 return false;
             }
-            */
+            
 
-
+            /*
             mProduct_ID = 21;
             mProduct_Name = "PP";
             mProduct_Type = "PP";
@@ -98,9 +98,19 @@ namespace UnitTestProject1
             mQuantity = 250;
             
             return true;
+            */
         }
 
 
+        public string Valid(Int32 Product_ID,
+            string Product_Name,
+            string Product_Type,
+            string Product_Descriptoion,
+            Int32 Quantity)
+        {
+
+            return "";
+        }
 
     }
 }

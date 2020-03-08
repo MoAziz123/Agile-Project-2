@@ -6,6 +6,12 @@ namespace UnitTestProject1
     [TestClass]
     public class tststock
     {
+        Int32 Product_ID = 1;
+        string Product_Name = "2.2kg protien powder";
+        string Product_Type = "Protien powder";
+        string Product_Description = "25grams of protien per scoop of 29 gram scoop.";
+        Int32 Quantity = 250;
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -197,6 +203,18 @@ namespace UnitTestProject1
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the stock class
+            clsStock Stock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Descriptoion, Quantity);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
         }
 
     }
