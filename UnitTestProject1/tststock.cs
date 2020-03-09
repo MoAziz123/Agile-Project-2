@@ -212,7 +212,7 @@ namespace UnitTestProject1
             clsStock Stock = new clsStock();
             //string variable to store any error message
             String Error = "";
-            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Descriptoion, Quantity);
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }

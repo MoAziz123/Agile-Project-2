@@ -83,5 +83,41 @@ namespace UnitTestProject1
             Assert.IsTrue(order.find(4));
             
         }
+
+        [TestMethod]
+        public void ValidOK()
+        {
+
+            string Error = "";
+            Assert.AreEqual(Error, order.valid(1, 1, "", true, 2, DateTime.Now));
+        }
+        [TestMethod]
+        public void CustomerIDValid()
+        {
+
+        }
+        [TestMethod]
+        public void ProductIDValid()
+        {
+
+        }
+        [TestMethod]
+        public void ProductNameValid()
+        {
+
+        }
+        [TestMethod]
+        public void OrderQuantityValid()
+        {
+
+        }
+        [TestMethod]
+        public void DispatchValid()
+        {
+
+        }
+        [TestMethod]
+        public void 
+
     }
 }
