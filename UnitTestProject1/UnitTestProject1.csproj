@@ -50,9 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="tstorder.cs" />
+    <Compile Include="tststock.cs" />
     <Compile Include="xclsOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tststock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
