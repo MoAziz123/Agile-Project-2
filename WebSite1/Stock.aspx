@@ -17,6 +17,7 @@
         <p>
             <asp:Label ID="Label1" runat="server" Height="20px" Text="Product ID" Width="150px"></asp:Label>
             <asp:TextBox ID="Product_ID" runat="server" ></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" Height="20px" Text="Find" Width="75px" OnClick="btnFind_Click" />
         </p>
         <p>
             <asp:Label ID="Label2" runat="server" Height="20px" Text="Product Name" Width="150px"></asp:Label>
@@ -43,7 +44,7 @@
             &nbsp;</p>
         <p>
             <asp:Button ID="btnOK" runat="server" Height="20px" Text="OK" Width="75px" OnClick="btnOK_Click" />
-            <asp:Button ID="btnCancel" runat="server" Height="20px" Text="Cancel" Width="75px" />
+            <asp:Button ID="btnCancel" runat="server" Height="20px" Text="Cancel" Width="75px" OnClick="btnCancel_Click" />
         </p>
         <p>
             &nbsp;</p>

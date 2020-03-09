@@ -59,17 +59,27 @@ namespace UnitTestProject1
             }
         }
 
-        public int Quantity;
+        public int Quantity {
+            get
+            {
+                return mQuantity;
+            }
+            set {
+                mQuantity = value;
+            }        
+        }
+
+        //public int Quantity;
 
         public bool Find(int Product_ID)
         {
-            
+        
             //create an instance of the data connetion
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the product_ID  to search for
             DB.AddParameter("@Product_ID", Product_ID);
             //execute the stored procedure
-            DB.Execute("");
+            DB.Execute("sproc_tblStock_FilterByProduct_ID");
             //if one record is found (there should be either one or zero!!)
             if (DB.Count == 1)
             {
@@ -88,7 +98,6 @@ namespace UnitTestProject1
                 //return false indicating a problem
                 return false;
             }
-            
 
             /*
             mProduct_ID = 21;
