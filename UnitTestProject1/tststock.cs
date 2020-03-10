@@ -205,7 +205,7 @@ namespace UnitTestProject1
             Assert.IsTrue(OK);
         }
 
-        /*
+        
         [TestMethod]
         public void ValidMethodOK()
         {
@@ -217,7 +217,7 @@ namespace UnitTestProject1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-        */
+        
 
     }
 }

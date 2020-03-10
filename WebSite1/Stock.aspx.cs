@@ -42,6 +42,25 @@ public partial class AnAddres : System.Web.UI.Page
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
-
+        //create an instance of the stock class
+        clsStock Stock = new clsStock();
+        //var of primary  key
+        Int32 Product_Id;
+        //Var to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered of the find operation
+        Product_Id = Convert.ToInt32(Product_ID.Text);
+        //find the record if it exists
+        Found = Stock.Find(Product_Id);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties
+            Product_ID.Text = Convert.ToString(Stock.Product_ID);
+            Product_Name.Text = Stock.Product_Name;
+            Product_Type.Text = Stock.Product_Type;
+            Product_Description.Text = Stock.Product_Description;
+            Quantity.Text = Convert.ToString(Stock.Quantity);
+        }
     }
 }
