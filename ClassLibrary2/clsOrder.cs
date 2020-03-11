@@ -87,15 +87,15 @@ namespace ClassLibrary2
 
             
         }
-        public string valid(int customer_id, int product_id, string product_name, bool dispatch, int order_quantity, System.DateTime date_ordered)
-        {
-            if(customerIDvalid(customer_id) && productIDvalid(product_id) && productNamevalid(product_name) && dispatchValid(dispatch) && orderQuantityValid(order_quantity) &&dateTimevalid(date_ordered))
-            {
-                return "";
-            }
+        //public string valid(int customer_id, int product_id, string product_name, bool dispatch, int order_quantity, System.DateTime date_ordered)
+        //{
+        //    if(customerIDvalid(customer_id) && productIDvalid(product_id) && productNamevalid(product_name) && dispatchValid(dispatch) && orderQuantityValid(order_quantity) &&dateTimevalid(date_ordered))
+        //    {
+        //        return "";
+        //    }
             
 
-        }
+        //}
         public string customerIDvalid(int customer_id)
         {
             if(!(customer_id is int && customer_id > 0 && customer_id < int.MaxValue))

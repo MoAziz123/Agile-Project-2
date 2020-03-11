@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ClassLibrary2;
 
 namespace UnitTestProject1
 {
@@ -12,12 +13,16 @@ namespace UnitTestProject1
         string Product_Description = "PP";
         Int32 Quantity = 250;
 
+
+
         [TestMethod]
         public void InstanceOK()
         {
             clsStock Stock = new clsStock();
             Assert.IsNotNull(Stock);
         }
+
+        //checking properties
 
         [TestMethod]
         public void AddedProduct_IDOK()
@@ -81,6 +86,20 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void PriceOK()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //Create some test data to assign to the property
+            double TestData = 25.99;
+            //assign the data to property
+            Stock.Price = TestData;
+        }
+
+
+        //Testing the find method
+
+        [TestMethod]
         public void FindMethodOK()
         {
             //Create an instance of the class we want to create
@@ -104,11 +123,11 @@ namespace UnitTestProject1
             //Boolean var to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 Product_ID = 21;
+            Int32 Product_ID = 1;
             //Invoke the method
             Found = Stock.Find(Product_ID);
             //Check Product_ID
-            if (Stock.Product_ID != 21)
+            if (Stock.Product_ID != 1)
             {
                 OK = false;
             }
@@ -126,11 +145,11 @@ namespace UnitTestProject1
             //Boolean var to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 Product_ID = 21;
+            Int32 Product_ID = 1;
             //Invoke the method
             Found = Stock.Find(Product_ID);
             //Check Product_ID
-            if (Stock.Product_Name != "PP")
+            if (Stock.Product_Name != "2x 5kg plate")
             {
                 OK = false;
             }
@@ -148,11 +167,11 @@ namespace UnitTestProject1
             //Boolean var to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 Product_ID = 21;
+            Int32 Product_ID = 1;
             //Invoke the method
             Found = Stock.Find(Product_ID);
             //Check Product_ID
-            if (Stock.Product_Type != "PP")
+            if (Stock.Product_Type != "Weights")
             {
                 OK = false;
             }
@@ -170,11 +189,11 @@ namespace UnitTestProject1
             //Boolean var to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 Product_ID = 21;
+            Int32 Product_ID = 1;
             //Invoke the method
             Found = Stock.Find(Product_ID);
             //Check Product_ID
-            if (Stock.Product_Description != "Protein powder")
+            if (Stock.Product_Description != "Two plates that weigh 5kg (each) can be used on all sort of barbells. This inclides  the 7ft barbells commonlly used for bench pressing. It can even be used on dumbbells")
             {
                 OK = false;
             }
@@ -193,11 +212,11 @@ namespace UnitTestProject1
             //Boolean var to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 Product_ID = 21;
+            Int32 Product_ID = 1;
             //Invoke the method
             Found = Stock.Find(Product_ID);
             //Check Product_ID
-            if (Stock.Quantity != 250)
+            if (Stock.Quantity != 259)
             {
                 OK = false;
             }
@@ -205,6 +224,8 @@ namespace UnitTestProject1
             Assert.IsTrue(OK);
         }
 
+
+        //validation method testing
         
         [TestMethod]
         public void ValidMethodOK()

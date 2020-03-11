@@ -1,7 +1,7 @@
 ﻿using ClassLibrary2;
 using System;
 
-namespace UnitTestProject1
+namespace ClassLibrary2
 {
     public class clsStock
     {
@@ -10,6 +10,7 @@ namespace UnitTestProject1
         private string mProduct_Type;
         private string mProduct_Description;
         private int mQuantity;
+        private double mPrice;
 
         public int Product_ID
         {
@@ -69,7 +70,17 @@ namespace UnitTestProject1
             }        
         }
 
-        //public int Quantity;
+        public double Price
+        {
+            get
+            {
+                return mPrice;
+            }
+            set
+            {
+                mPrice = value;
+            }
+        }
 
         public bool Find(int Product_ID)
         {
@@ -88,7 +99,7 @@ namespace UnitTestProject1
                 mProduct_Name = Convert.ToString(DB.DataTable.Rows[0]["Product_Name"]);
                 mProduct_Type = Convert.ToString(DB.DataTable.Rows[0]["Product_Type"]);
                 mProduct_Description = Convert.ToString(DB.DataTable.Rows[0]["Product_Description"]);
-                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Product_Quantity"]);
                 //return that everything worked OK
                 return true;
             }

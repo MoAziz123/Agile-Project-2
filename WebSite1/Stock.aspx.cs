@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UnitTestProject1;
+using ClassLibrary2;
 
 public partial class AnAddres : System.Web.UI.Page
 {
@@ -61,6 +61,10 @@ public partial class AnAddres : System.Web.UI.Page
             Product_Type.Text = Stock.Product_Type;
             Product_Description.Text = Stock.Product_Description;
             Quantity.Text = Convert.ToString(Stock.Quantity);
+        }
+        else
+        { // tempory error message to be displayed if Product with inputed ID doesn't work
+            Response.Write("Product with that ID doesn't exist in our database!");
         }
     }
 }

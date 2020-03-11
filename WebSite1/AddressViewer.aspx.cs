@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UnitTestProject1;
+using ClassLibrary2;
 
 public partial class AddressViewer_aspx : System.Web.UI.Page
 {
