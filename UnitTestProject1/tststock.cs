@@ -238,7 +238,456 @@ namespace UnitTestProject1
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-        
+
+        [TestMethod]
+        public void ProductIDMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_ID = 0;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductIDMin()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_ID = 1; // should be ok
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductIDMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_ID = 11;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductIDMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_ID = 255;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductIDMax()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_ID = 256;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductIDMid()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_ID = 128;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Name = "";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameMin()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Name = "a";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Name = "aa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameMax()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameMid()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Name = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTypeMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Type = "";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTypeMin()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Type = "a";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTypeMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Type = "aa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTypeMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Type = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTypeMax()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Type = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTypeMid()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Type = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Description = "";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMin()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Description = "a";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Description = "aa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMax()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMid()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Product_Description = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Quantity = -1;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityMin()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Quantity = 0;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Quantity = 1;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Quantity = 254;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityMax()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Quantity = 255;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityMid()
+        {
+            //create an instance of the class we want to create
+            clsStock Stock = new clsStock();
+            //String var to store error message
+            string Error = "";
+            //Redefine var that is getting tested
+            Quantity = 128;
+            //invoke the method
+            Error = Stock.Valid(Product_ID, Product_Name, Product_Type, Product_Description, Quantity);
+            //test to se that the result is correct
+            Assert.AreEqual(Error, "");
+        }
 
     }
 }

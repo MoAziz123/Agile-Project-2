@@ -128,8 +128,56 @@ namespace ClassLibrary2
             string Product_Descriptoion,
             Int32 Quantity)
         {
-
-            return "";
+            //creating a string var to store the error
+            String Error = "";
+            //if the ProductID is blank
+            if (Product_ID == 0)
+            {
+                //recording error for Product_ID 
+                Error = Error + "Product_ID can not be blank";
+            }
+            if (Product_Name == "")
+            {
+                //recording error for Product_Name
+                Error = Error + "Product_Name can not be blank";
+            }
+            if (Product_Type == "")
+            {
+                //recording error for Product_Type
+                Error = Error + "Product_Type can not be blank";
+            }
+            if (Product_Descriptoion == "")
+            {
+                //recording error for Product_Description
+                Error = Error + "Product_Description can not be blank";
+            }
+            if (Quantity == -1)
+            {
+                //recording error for Quantity
+                Error = Error + "Quantiy can not be negative";
+            }
+            if (Product_ID > 1000000)
+            {
+                //recording error for Product_ID 
+                Error = Error + "Product_ID can not be that big";
+            }
+            if (Product_Name.Length > 51)
+            {
+                //recording error for Product_Name 
+                Error = Error + "Product_Name can not be that big";
+            }
+            if (Product_Type.Length > 51)
+            {
+                //recording error for Product_Type
+                Error = Error + "Product_Type can not be that big";
+            }
+            if (Quantity > 1000000)
+            {
+                //recording error for Product_Quantity
+                Error = Error + "Quantity can not be that big";
+            }
+            return Error;
+            //return "";
         }
 
     }
