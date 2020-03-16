@@ -89,18 +89,63 @@ namespace ClassLibrary2
         }
         //public string valid(int customer_id, int product_id, string product_name, bool dispatch, int order_quantity, System.DateTime date_ordered)
         //{
-        //    if(customerIDvalid(customer_id) && productIDvalid(product_id) && productNamevalid(product_name) && dispatchValid(dispatch) && orderQuantityValid(order_quantity) &&dateTimevalid(date_ordered))
+        //    if(customerIDvalid(customer_id) && productIDvalid(product_id) && productNamevalid(product_name) && dispatchValid(dispatch) && orderQuantityValid(order_quantity) && dateTimevalid(date_ordered))
         //    {
         //        return "";
         //    }
             
 
         //}
+
+        public string valid(int cid, int pid, string pn, bool d, int oq, System.DateTime date_ordered)
+        {
+            string GlobalError = "";
+            string CIDError = customerIDvalid(cid);
+            if(CIDError != "")
+            {
+                GlobalError += CIDError;
+            }
+            string PIDError = productIDvalid(pid);
+            if(PIDError != "")
+            {
+                GlobalError += PIDError;
+            }
+
+            string PNError = productNamevalid(pn);
+            if(PNError != "")
+            {
+                GlobalError += PNError;
+            }
+
+            string DError = dispatchValid(d);
+            if(DError != "")
+            {
+                GlobalError += DError;
+            }
+
+            string OQError = orderQuantityValid(oq);
+            if(OQError != "")
+            {
+                GlobalError += OQError;
+            }
+
+            string DOError = dateTimevalid(date_ordered);
+            if(DOError != "")
+            {
+                GlobalError += DOError;
+            }
+
+            return GlobalError;
+
+
+        }
         public string customerIDvalid(int customer_id)
         {
-            if(!(customer_id is int && customer_id > 0 && customer_id < int.MaxValue))
+            string Error = "";
+            if(!(customer_id > 0 && customer_id < int.MaxValue))
             {
-                return string.Format("The customer ID must be between 0 and {0}", int.MaxValue);
+                Error += string.Format("The customer ID must be between 0 and {0}", int.MaxValue);
+                return Error;
             }
             return "";
             
@@ -108,42 +153,53 @@ namespace ClassLibrary2
         }
         public string productIDvalid(int product_id)
         {
+            string Error = "";
             if (!(product_id is int && product_id > 0 && product_id < int.MaxValue))
             {
-                return string.Format("The product ID must be between 0 and {0}", int.MaxValue);
+                Error += string.Format("The product ID must be between 0 and {0}", int.MaxValue);
+                return Error;
             }
             return "";
 
         }
         public string productNamevalid(string product_name)
         {
+            string Error = "";
             if(!(product_name is string && product_name.Length > 0 && product_name.Length < 50))
             {
-                return "The product name must be between 0 and 50 characters in length";
+                Error += "The product name must be between 0 and 50 characters in length";
+                return Error;
+                
             }
             return "";
         }
         public string dispatchValid(bool dispatch)
         {
+            string Error = "";
             if(!(dispatch is bool))
             {
-                return "The dispatch variable needs to be of type boolean.";
+                Error += "The dispatch variable needs to be of type boolean.";
+                return Error;
             }
             return "";
         }
         public string orderQuantityValid(int order_quantity)
         {
-            if (!(order_quantity is int && order_quantity> 0 && order_quantity< int.MaxValue))
+            string Error = "";
+            if (!(order_quantity> 0 && order_quantity< int.MaxValue))
             {
-                return string.Format("The order quantity needs to be between 0 and {0}.", int.MaxValue);
+                Error += string.Format("The order quantity needs to be between 0 and {0}.", int.MaxValue);
+                return Error;
             }
             return "";
         }
         public string dateTimevalid(System.DateTime date)
         {
-            if(!(date is System.DateTime && date == DateTime.Today))
+            string Error = "";
+            if(!(date == DateTime.Today))
             {
-                return "The date must be today.";
+                Error += "The date must be today.";
+                return Error;
             }
             return "";
         }

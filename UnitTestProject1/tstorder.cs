@@ -94,27 +94,47 @@ namespace UnitTestProject1
         [TestMethod]
         public void CustomerIDValid()
         {
-
+            string Error = "";
+            Assert.AreEqual(Error, order.customerIDvalid(4));
         }
         [TestMethod]
         public void ProductIDValid()
         {
-
+            string Error = "";
+            Assert.AreEqual(Error, order.productIDvalid(4));
         }
         [TestMethod]
         public void ProductNameValid()
         {
+            string Error = "";
+            Assert.AreEqual(Error, order.productNamevalid("uoiew"));
 
         }
         [TestMethod]
         public void OrderQuantityValid()
         {
-
+            string Error = "";
+            Assert.AreEqual(Error, order.orderQuantityValid(2));
         }
         [TestMethod]
         public void DispatchValid()
         {
+            string Error = "";
+            Assert.AreEqual(Error, order.dispatchValid(true));
 
+        }
+        [TestMethod]
+        public void DateValid()
+        {
+            string Error = "";
+            Assert.AreEqual(Error, order.dateTimevalid(DateTime.Now.Date));
+
+        }
+        [TestMethod]
+        public void OrderValid()
+        {
+            string Error = "";
+            Assert.AreEqual(Error, order.valid(4, 4, "jfe", true, 3, DateTime.Now.Date));
         }
 
     }
