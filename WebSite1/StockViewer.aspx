@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddressViewer.aspx.cs" Inherits="AddressViewer_aspx" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StockViewer.aspx.cs" Inherits="AddressViewer_aspx" %>
 
 <!DOCTYPE html>
 

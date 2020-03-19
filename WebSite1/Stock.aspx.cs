@@ -23,20 +23,43 @@ public partial class AnAddres : System.Web.UI.Page
     {
         //Creating an instance
         clsStock Stock = new clsStock();
-        //Capture the Product_ID
-        Stock.Product_ID = Convert.ToInt32(Product_ID.Text);
-        //Capture the Product name
-        Stock.Product_Name = Product_Name.Text;
-        //Capture product type
-        Stock.Product_Type = Product_Type.Text;
-        //Capture product description
-        Stock.Product_Description = Product_Description.Text;
-        //Capture quantity
-        Stock.Quantity = Convert.ToInt32(Quantity.Text);
-        //Store the address in the session object
-        Session["Stock"] = Stock;
-        //redirect to the viewer page
-        Response.Redirect("AddressViewer.aspx");
+        // capture Product_ID
+        Int32 ProductID = Convert.ToInt32(Product_ID.Text);
+        // capture the product name
+        string ProductName = Product_Name.Text;
+        // capture the type
+        string ProductType = Product_Type.Text;
+        // Capture product description
+        string ProductDescription = Product_Description.Text;
+        // capture quantity
+        Int32 StockQuantity = Convert.ToInt32(Quantity.Text);
+        // var to store any error message
+        string Error = "";
+        //validate the data
+        Error = Stock.Valid(ProductID, ProductName, ProductType, ProductDescription, StockQuantity);
+
+        if (Error == "")
+        {
+            //Capture the Product_ID
+            Stock.Product_ID = Convert.ToInt32(Product_ID.Text);
+            //Capture the Product name
+            Stock.Product_Name = Product_Name.Text;
+            //Capture product type
+            Stock.Product_Type = Product_Type.Text;
+            //Capture product description
+            Stock.Product_Description = Product_Description.Text;
+            //Capture quantity
+            Stock.Quantity = Convert.ToInt32(Quantity.Text);
+            //Store the address in the session object
+            Session["Stock"] = Stock;
+            //redirect to the viewer page
+            Response.Redirect("StockViewer.aspx");
+        }
+        else
+        {
+            //display error message
+            Response.Write(Error);
+        }
     }
   
 
