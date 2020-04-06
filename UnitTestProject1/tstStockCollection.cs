@@ -98,5 +98,14 @@ namespace UnitTestProject1
             Assert.AreEqual(AllStock.Count, TestList.Count);
         }
 
+
+        [TestMethod]
+        public void TwoRecordsPresent()
+        {
+            //create an instance of the class we want to create 
+            clsStockCollection AllStock = new clsStockCollection();
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStock.Count, 2);
+        }
     }
 }
