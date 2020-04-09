@@ -8,6 +8,32 @@ namespace UnitTestProject1
     [TestClass]
     public class tstStockCollection
     {
+
+        //constructor for the class
+        public clsStockCollection()
+        {
+            //create the item of test data
+            clsStock TestItem = new clsStock();
+            //set its properties
+            TestItem.Product_ID = 1;
+            TestItem.Product_Name = "PP";
+            TestItem.Product_Type = "PP";
+            TestItem.Quantity = 250;
+            TestItem.Price = 25.99;
+            //add item to the test list
+            mStockList.add(TestItem);
+            //re initialise the object for some new data
+            TestItem = new clsStock();
+            //set its properties
+            TestItem.Product_ID = 2;
+            TestItem.Product_Name = "PP1";
+            TestItem.Product_Type = "PP1";
+            TestItem.Quantity = 259;
+            TestItem.Price = 29.99;
+            //add the item to the test list
+            mStockList.add(TestItem);
+        }
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -48,7 +74,7 @@ namespace UnitTestProject1
             //create an instance of the class
             clsStockCollection AllStock = new clsStockCollection();
             //create some test data to assign
-            Int32 SomeCount = 0;
+            Int32 SomeCount = 2;
             //assign the data to the property
             AllStock.Count = SomeCount;
         }

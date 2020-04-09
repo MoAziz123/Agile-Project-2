@@ -37,13 +37,4 @@ namespace ClassLibrary2
         public clsStock ThisStock { get; set; }
     }
 
-    public clsStockCollection()
-    {
-        //create the item of test data
-        clsStock TestItem = new clsStock();
-        //set its properties
-        TestItem.Product_ID = 1;
-        TestItem.Product_Name = "PP";
-
-    }
 }
