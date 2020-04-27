@@ -65,12 +65,12 @@ namespace ClassLibrary2
             set { this.date_ordered = value; }
         }
 
-        public bool find(int customer_id)
+        public bool find(int cid)
         {
             clsDataConnection db = new clsDataConnection();
-            db.AddParameter("@CustomerID", customer_id);
+            db.AddParameter("@CustomerID", cid);
             db.Execute("findProcedureOrder");
-            if(db.Count == 1)
+            if(db.Count >= 1)
             {
                 this.Customer_Id = Convert.ToInt32(db.DataTable.Rows[0]["Customer_ID"]);
                 this.Product_Id = Convert.ToInt32(db.DataTable.Rows[0]["Product_ID"]);
@@ -87,15 +87,7 @@ namespace ClassLibrary2
 
             
         }
-        //public string valid(int customer_id, int product_id, string product_name, bool dispatch, int order_quantity, System.DateTime date_ordered)
-        //{
-        //    if(customerIDvalid(customer_id) && productIDvalid(product_id) && productNamevalid(product_name) && dispatchValid(dispatch) && orderQuantityValid(order_quantity) && dateTimevalid(date_ordered))
-        //    {
-        //        return "";
-        //    }
-            
-
-        //}
+       
 
         public string valid(int cid, int pid, string pn, bool d, int oq, System.DateTime date_ordered)
         {
@@ -165,7 +157,7 @@ namespace ClassLibrary2
         public string productNamevalid(string product_name)
         {
             string Error = "";
-            if(!(product_name is string && product_name.Length > 0 && product_name.Length < 50))
+            if(!(product_name.Length > 0 && product_name.Length < 50))
             {
                 Error += "The product name must be between 0 and 50 characters in length";
                 return Error;

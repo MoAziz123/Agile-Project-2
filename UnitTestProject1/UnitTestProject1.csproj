@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="tstorder.cs" />
+    <Compile Include="tstOrderCollection.cs" />
     <Compile Include="tststock.cs" />
     <Compile Include="tstStockCollection.cs" />
     <Compile Include="xclsOrder.cs" />

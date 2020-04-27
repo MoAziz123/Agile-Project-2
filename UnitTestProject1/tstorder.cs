@@ -84,13 +84,13 @@ namespace UnitTestProject1
             
         }
 
-        //[TestMethod]
-        //public void ValidOK()
-        //{
+        [TestMethod]
+        public void ValidOK()
+        {
 
-        //    string Error = "";
-        //    Assert.AreEqual(Error, order.valid(1, 1, "", true, 2, DateTime.Now));
-        //}
+           string Error = "";
+           Assert.AreEqual(Error, order.valid(1, 1, "product", true, 2, DateTime.Today));
+        }
         [TestMethod]
         public void CustomerIDValid()
         {
@@ -136,6 +136,7 @@ namespace UnitTestProject1
             string Error = "";
             Assert.AreEqual(Error, order.valid(4, 4, "jfe", true, 3, DateTime.Now.Date));
         }
+        
 
     }
 }
