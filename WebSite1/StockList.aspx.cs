@@ -13,8 +13,13 @@ public partial class _Default : System.Web.UI.Page
         if (IsPostBack == false)
         {
             //update the list box
-            //DisplayStocks();
+            DisplayStocks();
         }
+    }
+
+    void DisplayStocks()
+    {
+        //return 0;//this would give the record count
     }
 
     protected void LstStockList_SelectedIndexChanged(object sender, EventArgs e)
