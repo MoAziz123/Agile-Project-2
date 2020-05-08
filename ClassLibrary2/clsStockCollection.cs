@@ -12,30 +12,32 @@ namespace ClassLibrary2
         //constructor for the class
         public clsStockCollection()
         {
-            mStockList = new List<clsStock>();
-            //create the item of test data
-            clsStock TestItem = new clsStock();
-            //set its properties
-            TestItem.Product_ID = 1;
-            TestItem.Product_Name = "PP";
-            TestItem.Product_Type = "PP";
-            TestItem.Quantity = 250;
-            TestItem.Price = 25.99;
-            //add item to the test list
-            mStockList.Add(TestItem);
-            //re initialise the object for some new data
-            TestItem = new clsStock();
-            //set its properties
-            TestItem.Product_ID = 2;
-            TestItem.Product_Name = "PP1";
-            TestItem.Product_Type = "PP2";
-            TestItem.Quantity = 259;
-            TestItem.Price = 29.99;
-            //add the item to the test list
-            mStockList.Add(TestItem);
-
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount = 0;
+            //object for data connection
             clsDataConnection DB = new clsDataConnection();
-            Int32 records = DB.Count;
+            //execute stored procedure
+            DB.Execute("sproc_tblStock_SelectAll");
+            RecordCount = DB.Count;
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank stock
+                clsStock Stock = new clsStock();
+                //read in the fields from the current records
+                Stock.Product_ID = Convert.ToInt32(DB.DataTable.Rows[Index]["Product_ID"]);
+                Stock.Product_Name = Convert.ToString(DB.DataTable.Rows[Index]["Product_Name"]);
+                Stock.Product_Type = Convert.ToString(DB.DataTable.Rows[Index]["Product_Type"]);
+                Stock.Product_Description = Convert.ToString(DB.DataTable.Rows[Index]["Product_Description"]);
+                Stock.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
+                Stock.Price = Convert.ToDouble(DB.DataTable.Rows[Index]["Price"]);
+                //add the records to the private data mamber
+                mStockList.Add(Stock);
+                //point at the next record
+                Index++;
+            }
         }
 
 

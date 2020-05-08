@@ -19,7 +19,16 @@ public partial class _Default : System.Web.UI.Page
 
     void DisplayStocks()
     {
-        //return 0;//this would give the record count
+        //create an instance of the collection
+        ClassLibrary2.clsStockCollection Stocks = new ClassLibrary2.clsStockCollection();
+        //set data source to the list of countries in the collection
+        LstStockList.DataSource = Stocks.StockList;
+        //set the name of the primary key
+        LstStockList.DataValueField = "Product_ID";
+        //set the data field to display
+        LstStockList.DataValueField = "Product_Name";
+        //bind the data to the list
+        LstStockList.DataBind();
     }
 
     protected void LstStockList_SelectedIndexChanged(object sender, EventArgs e)

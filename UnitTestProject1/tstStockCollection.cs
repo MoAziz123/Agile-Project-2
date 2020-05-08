@@ -30,28 +30,17 @@ namespace UnitTestProject1
             clsStock TestItem = new clsStock();
             //set its properties
             TestItem.Product_ID = 1;
-            TestItem.Product_Name = "ProtienPowder";
-            TestItem.Product_Type = "PP";
-            TestItem.Product_Description = "25grams of protien per scoop";
-            TestItem.Quantity = 21;
-            TestItem.Price = 49.99;
+            TestItem.Product_Name = "2x 5kg plate";
+            TestItem.Product_Type = "Weights";
+            TestItem.Product_Description = "Two plates that weigh 5kg (each) can be used on all sort of barbells. This inclides  the 7ft barbells commonlly used for bench pressing. It can even be used on dumbbells";
+            TestItem.Quantity = 259;
+            TestItem.Price = 50;
             //add the item to the test list
             TestList.Add(TestItem);
             //Assign the data to the property
             AllStock.StockList = TestList;
             //test to see that the two values are the same
             Assert.AreEqual(AllStock.StockList, TestList);
-        }
-
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            //create an instance of the class
-            clsStockCollection AllStock = new clsStockCollection();
-            //create some test data to assign
-            Int32 SomeCount = 2;
-            //assign the data to the property
-            AllStock.Count = SomeCount;
         }
 
         [TestMethod]
@@ -63,11 +52,11 @@ namespace UnitTestProject1
             clsStock TestStock = new clsStock();
             //Set the properties of the test object
             TestStock.Product_ID = 1;
-            TestStock.Product_Name = "ProtienPowder";
-            TestStock.Product_Type = "PP";
-            TestStock.Product_Description = "25grams of protien per scoop";
-            TestStock.Quantity = 21;
-            TestStock.Price = 49.99;
+            TestStock.Product_Name = "2x 5kg plate";
+            TestStock.Product_Type = "Weights";
+            TestStock.Product_Description = "Two plates that weigh 5kg (each) can be used on all sort of barbells. This inclides  the 7ft barbells commonlly used for bench pressing. It can even be used on dumbbells";
+            TestStock.Quantity = 259;
+            TestStock.Price = 50;
             //assign the data to the property
             AllStock.ThisStock = TestStock;
             //test to see that the two values are the same
@@ -86,11 +75,11 @@ namespace UnitTestProject1
             clsStock TestItem = new clsStock();
             //set its properties
             TestItem.Product_ID = 1;
-            TestItem.Product_Name = "ProtienPowder";
-            TestItem.Product_Type = "PP";
-            TestItem.Product_Description = "25grams of protien per scoop";
-            TestItem.Quantity = 21;
-            TestItem.Price = 49.99;
+            TestItem.Product_Name = "2x 5kg plate";
+            TestItem.Product_Type = "Weights";
+            TestItem.Product_Description = "Two plates that weigh 5kg (each) can be used on all sort of barbells. This inclides  the 7ft barbells commonlly used for bench pressing. It can even be used on dumbbells";
+            TestItem.Quantity = 259;
+            TestItem.Price = 50;
             //add the item to the test list
             TestList.Add(TestItem);
             //Assign the data to the property
@@ -100,13 +89,6 @@ namespace UnitTestProject1
         }
 
 
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            //create an instance of the class we want to create 
-            clsStockCollection AllStock = new clsStockCollection();
-            //test to see that the two values are the same
-            Assert.AreEqual(AllStock.Count, 2);
-        }
+
     }
 }

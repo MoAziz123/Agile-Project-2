@@ -99,7 +99,7 @@ namespace ClassLibrary2
                 mProduct_Name = Convert.ToString(DB.DataTable.Rows[0]["Product_Name"]);
                 mProduct_Type = Convert.ToString(DB.DataTable.Rows[0]["Product_Type"]);
                 mProduct_Description = Convert.ToString(DB.DataTable.Rows[0]["Product_Description"]);
-                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Product_Quantity"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
                 //return that everything worked OK
                 return true;
             }
