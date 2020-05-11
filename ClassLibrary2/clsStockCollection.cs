@@ -8,6 +8,7 @@ namespace ClassLibrary2
     public class clsStockCollection
     {
         private List<clsStock> mStockList;
+        private clsStock mThisStock;
 
         //constructor for the class
         public clsStockCollection()
@@ -16,6 +17,8 @@ namespace ClassLibrary2
             Int32 Index = 0;
             //var to store the record count
             Int32 RecordCount = 0;
+            //defining mStockList
+            mStockList = new List<clsStock>();
             //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute stored procedure
@@ -66,7 +69,33 @@ namespace ClassLibrary2
                 //worry about this later
             }
         }
-        public clsStock ThisStock { get; set; }
+        public clsStock ThisStock
+        {
+            get
+            {
+                return mThisStock;
+            }
+            set
+            {
+                mThisStock = value;
+            }
+        }
+
+        public int Add()
+        {
+            //connect to Database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters
+            DB.AddParameter("@Product_ID", mThisStock.Product_ID);
+            DB.AddParameter("@Product_Name", mThisStock.Product_Name);
+            DB.AddParameter("@Product_Type", mThisStock.Product_Type);
+            DB.AddParameter("@Product_Description", mThisStock.Product_Description);
+            DB.AddParameter("@Qunatity", mThisStock.Quantity);
+            DB.AddParameter("@Price", mThisStock.Price);
+            //execute the query returning the primary key value
+            return DB.Execute()
+
+        }
     }
 
 
