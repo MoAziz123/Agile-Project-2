@@ -93,7 +93,7 @@ namespace ClassLibrary2
             DB.AddParameter("@Qunatity", mThisStock.Quantity);
             DB.AddParameter("@Price", mThisStock.Price);
             //execute the query returning the primary key value
-            return DB.Execute()
+            return DB.Execute("sproc_tblStock_Insert");
 
         }
     }
