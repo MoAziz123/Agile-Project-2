@@ -44,4 +44,10 @@ public partial class _Default : System.Web.UI.Page
         //bind the data to the list
         LstStockList.DataBind();
     }
+
+    protected void Add_Click(object sender, EventArgs e)
+    {
+        Session["Product_ID"] = -1;
+        Response.Redirect("Stock.aspx");
+    }
 }
