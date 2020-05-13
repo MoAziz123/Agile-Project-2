@@ -86,11 +86,10 @@ namespace ClassLibrary2
             //connect to Database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters
-            DB.AddParameter("@Product_ID", mThisStock.Product_ID);
             DB.AddParameter("@Product_Name", mThisStock.Product_Name);
             DB.AddParameter("@Product_Type", mThisStock.Product_Type);
             DB.AddParameter("@Product_Description", mThisStock.Product_Description);
-            DB.AddParameter("@Qunatity", mThisStock.Quantity);
+            DB.AddParameter("@Quantity", mThisStock.Quantity);
             DB.AddParameter("@Price", mThisStock.Price);
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblStock_Insert");
