@@ -25,4 +25,11 @@ public partial class AddressViewer_aspx : System.Web.UI.Page
         Response.Write("<br>");
         Response.Write(Stock.Quantity);
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session["Product_ID"] = -1;
+        //redirect to the dataentry page
+        Response.Redirect("Stock.aspx");
+    }
 }

@@ -8,8 +8,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="height: 311px">
         </div>
+        <asp:Button ID="BtnAdd" runat="server" OnClick="Button1_Click" Text="Add" />
+        <asp:Button ID="BtnDelete" runat="server" Text="Delete" />
     </form>
 </body>
 </html>
