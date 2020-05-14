@@ -13,18 +13,21 @@ namespace ClassLibrary2
         //constructor for the class
         public clsStockCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
-            //defining mStockList
-            mStockList = new List<clsStock>();
-            //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute stored procedure
             DB.Execute("sproc_tblStock_SelectAll");
+            PopulateArray(DB);
+        }
+
+        public void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+
+            Int32 RecordCount;
+
             RecordCount = DB.Count;
-            //while there are records to process
+
+            mStockList = new List<clsStock>();
             while (Index < RecordCount)
             {
                 //create a blank stock
@@ -115,6 +118,17 @@ namespace ClassLibrary2
             DB.AddParameter("Price", mThisStock.Price);
 
             DB.Execute("sproc_tblStock_Update");
+        }
+
+        public void ReportByProductType(string Product_Type)
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@Product_Type", Product_Type);
+
+            DB.Execute("sproc_tblStock_FilterByProductType");
+
+            PopulateArray(DB);
         }
     }
 
