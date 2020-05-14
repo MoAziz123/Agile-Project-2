@@ -50,8 +50,18 @@ public partial class AnAddres : System.Web.UI.Page
             Stock.Product_Description = Product_Description.Text;
             //Capture quantity
             Stock.Quantity = Convert.ToInt32(Quantity.Text);
+
+            clsStockCollection StockList = new clsStockCollection();
+
+            StockList.ThisStock = Stock;
+
+            StockList.Add();
+
+            /*
             //Store the address in the session object
             Session["Stock"] = Stock;
+            */
+
             //redirect to the viewer page
             Response.Redirect("StockViewer.aspx");
         }
