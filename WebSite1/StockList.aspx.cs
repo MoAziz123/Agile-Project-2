@@ -67,4 +67,19 @@ public partial class _Default : System.Web.UI.Page
             //display error
         }
     }
+
+    protected void Edit_Click(object sender, EventArgs e)
+    {
+        Int32 Product_ID;
+
+        if (LstStockList.SelectedIndex != -1)
+        {
+            Product_ID = Convert.ToInt32(LstStockList.SelectedValue);
+            Session["Product_ID"] = Product_ID;
+            Response.Redirect("Stock.aspx");
+        }  else
+        {
+            //display error
+        }
+    }
 }

@@ -147,5 +147,36 @@ namespace UnitTestProject1
             Assert.IsFalse(Found);
         }
 
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsStockCollection AllStock = new clsStockCollection();
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 0;
+            TestItem.Product_Name = "Protien Powder 2kg WHEY";
+            TestItem.Product_Type = "Protien powder";
+            TestItem.Product_Description = "Each scoop contains 24grams of protien out of the total 31 grams. The protien is from a whey source (dairy).";
+            TestItem.Quantity = 250;
+            TestItem.Price = 55;
+
+            AllStock.ThisStock = TestItem;
+            PrimaryKey = AllStock.Add();
+
+            TestItem.Product_ID = PrimaryKey;
+
+            TestItem.Product_Name = "25kg x 2 plates";
+            TestItem.Product_Type = "Weights";
+            TestItem.Product_Description = "Heavy ass weights!";
+            TestItem.Quantity = 500;
+            TestItem.Price = 125;
+
+            AllStock.ThisStock = TestItem;
+
+            AllStock.Update();
+
+            AllStock.ThisStock.Find(PrimaryKey);
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+        }
+
     }
 }
