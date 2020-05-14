@@ -87,7 +87,6 @@ public partial class AnAddres : System.Web.UI.Page
             }
 
 
-
             //redirect to the viewer page
             Response.Redirect("StockViewer.aspx");
         }

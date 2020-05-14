@@ -178,5 +178,15 @@ namespace UnitTestProject1
             Assert.AreEqual(AllStock.ThisStock, TestItem);
         }
 
+        [TestMethod]
+        public void ReportByProductType()
+        {
+            clsStockCollection FilterStock = new clsStockCollection();
+
+            FilterStock.ReportByProductType("xxxx");
+
+            Assert.AreEqual(0, FilterStock.Count);
+        }
+
     }
 }
