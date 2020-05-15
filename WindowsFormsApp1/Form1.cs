@@ -17,11 +17,7 @@ namespace WindowsFormsApp1
         }
         private void onload(object sender, EventArgs e)
         {
-            clsOrderCollection col = new clsOrderCollection();
-            foreach(clsOrder i in col.list)
-            {
-                listBox1.Items.Add(i.Customer_Id + " - " + i.Product_Name + " - " + i.Date_Ordered);
-            }
+            fillListBox(col.list);
             
         }
         private void add_Click(object sender, EventArgs e)
@@ -129,11 +125,7 @@ namespace WindowsFormsApp1
             {
                 col.Filter(textBox6.Text);
                 listBox1.Items.Clear();
-                foreach(clsOrder i in col.list)
-                {
-                    listBox1.Items.Add(i.Customer_Id + " - " + i.Product_Name + " - " + i.Date_Ordered);
-
-                }
+                fillListBox(col.list);
                 MessageBox.Show("Items have been filtered");
 
 
@@ -168,14 +160,34 @@ namespace WindowsFormsApp1
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-
+            if(textBox7.Text != null)
+            {
+                clsOrder order = new clsOrder();
+                var data = Convert.ToInt32(textBox7.Text);
+                if (order.findOne(data))
+                {
+                    listBox1.Items.Clear();
+                    listBox1.Items.Add(order.Product_Id.ToString() + " - " + order.Product_Name + " - " + order.Date_Ordered);
+                }
+                else
+                {
+                    MessageBox.Show("Data not found.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a number into the find field.");
+            }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void fillListBox(List<clsOrder> list)
         {
-
+            foreach(clsOrder item in list)
+            {
+                listBox1.Items.Add(item.Customer_Id + " - " + item.Product_Name + " - " + item.Date_Ordered);
+            }
         }
     }
 }

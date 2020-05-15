@@ -128,5 +128,14 @@ namespace UnitTestProject1
             
             
         }
+        [TestMethod]
+        public void FindOneOK()
+        {
+            int data = 5;
+            clsOrder order = new clsOrder();
+            clsOrder test = new clsOrder();
+            Assert.AreEqual(order.find(data), test.find(data));
+            
+        }
     }
 }

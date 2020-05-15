@@ -87,6 +87,28 @@ namespace ClassLibrary2
 
             
         }
+
+        public bool findOne(int pid)
+        {
+            clsDataConnection db = new clsDataConnection();
+            db.AddParameter("@ProductID", pid);
+            db.Execute("findOneProcedureOrder");
+            if(db.Count == 1)
+            {
+                this.Customer_Id = Convert.ToInt32(db.DataTable.Rows[0]["Customer_ID"]);
+                this.Product_Id = Convert.ToInt32(db.DataTable.Rows[0]["Product_ID"]);
+                this.Product_Name = Convert.ToString(db.DataTable.Rows[0]["Product_Name"]);
+                this.Order_Quantity = Convert.ToInt32(db.DataTable.Rows[0]["Order_Quantity"]);
+                this.Dispatch = Convert.ToBoolean(db.DataTable.Rows[0]["Dispatch"]);
+                this.Date_Ordered = Convert.ToDateTime(db.DataTable.Rows[0]["Date_Ordered"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
        
 
         public string valid(int cid, int pid, string pn, bool d, int oq, System.DateTime date_ordered)
