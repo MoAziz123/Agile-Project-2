@@ -8,20 +8,26 @@ namespace ClassLibrary2
     public class clsStockCollection
     {
         private List<clsStock> mStockList;
+        private clsStock mThisStock;
 
         //constructor for the class
         public clsStockCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
-            //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute stored procedure
             DB.Execute("sproc_tblStock_SelectAll");
+            PopulateArray(DB);
+        }
+
+        public void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+
+            Int32 RecordCount;
+
             RecordCount = DB.Count;
-            //while there are records to process
+
+            mStockList = new List<clsStock>();
             while (Index < RecordCount)
             {
                 //create a blank stock
@@ -66,7 +72,64 @@ namespace ClassLibrary2
                 //worry about this later
             }
         }
-        public clsStock ThisStock { get; set; }
+        public clsStock ThisStock
+        {
+            get
+            {
+                return mThisStock;
+            }
+            set
+            {
+                mThisStock = value;
+            }
+        }
+
+        public int Add()
+        {
+            //connect to Database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters
+            DB.AddParameter("@Product_Name", mThisStock.Product_Name);
+            DB.AddParameter("@Product_Type", mThisStock.Product_Type);
+            DB.AddParameter("@Product_Description", mThisStock.Product_Description);
+            DB.AddParameter("@Quantity", mThisStock.Quantity);
+            DB.AddParameter("@Price", mThisStock.Price);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblStock_Insert");
+
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("Product_ID", mThisStock.Product_ID);
+            DB.Execute("sproc_tblStock_Delete");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("Product_ID", mThisStock.Product_ID);
+            DB.AddParameter("Product_Name", mThisStock.Product_Name);
+            DB.AddParameter("Product_Type", mThisStock.Product_Type);
+            DB.AddParameter("Product_Description", mThisStock.Product_Description);
+            DB.AddParameter("Quantity", mThisStock.Quantity);
+            DB.AddParameter("Price", mThisStock.Price);
+
+            DB.Execute("sproc_tblStock_Update");
+        }
+
+        public void ReportByProductType(string Product_Type)
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@Product_Type", Product_Type);
+
+            DB.Execute("sproc_tblStock_FilterByProductType");
+
+            PopulateArray(DB);
+        }
     }
 
 

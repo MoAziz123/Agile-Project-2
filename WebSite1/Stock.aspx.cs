@@ -8,15 +8,33 @@ using ClassLibrary2;
 
 public partial class AnAddres : System.Web.UI.Page
 {
+    Int32 Product_ID;
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        /*
-        //create a new instance of clsStock
-        clsStock Stock = new clsStock();
-        Stock = Session["Stock"] as clsStock;
-        //display the house number for this entry
-        Response.Write(Stock.Product_ID);
-        */
+        Product_ID = Convert.ToInt32(Session["Product_ID"]);
+        if (IsPostBack == false)
+        {
+            if (Product_ID != -1)
+            {
+                DisplayStock();
+
+                
+            }
+        }
+    }
+
+    private void DisplayStock()
+    {
+        clsStockCollection StockBook = new clsStockCollection();
+        StockBook.ThisStock.Find(Product_ID);
+
+        Product_IDtxt.Text = StockBook.ThisStock.Product_ID.ToString();
+        Product_Name.Text = StockBook.ThisStock.Product_Name;
+        Product_Type.Text = StockBook.ThisStock.Product_Type;
+        Product_Description.Text = StockBook.ThisStock.Product_Description;
+        Quantity.Text = StockBook.ThisStock.Quantity.ToString();
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -24,7 +42,7 @@ public partial class AnAddres : System.Web.UI.Page
         //Creating an instance
         clsStock Stock = new clsStock();
         // capture Product_ID
-        Int32 ProductID = Convert.ToInt32(Product_ID.Text);
+        Int32 ProductID = Convert.ToInt32(Product_IDtxt.Text);
         // capture the product name
         string ProductName = Product_Name.Text;
         // capture the type
@@ -41,17 +59,34 @@ public partial class AnAddres : System.Web.UI.Page
         if (Error == "")
         {
             //Capture the Product_ID
-            Stock.Product_ID = Convert.ToInt32(Product_ID.Text);
+            Stock.Product_ID = Product_ID;
             //Capture the Product name
-            Stock.Product_Name = Product_Name.Text;
+            Stock.Product_Name = ProductName;
             //Capture product type
-            Stock.Product_Type = Product_Type.Text;
+            Stock.Product_Type = ProductType;
             //Capture product description
-            Stock.Product_Description = Product_Description.Text;
+            Stock.Product_Description = ProductDescription;
             //Capture quantity
-            Stock.Quantity = Convert.ToInt32(Quantity.Text);
-            //Store the address in the session object
-            Session["Stock"] = Stock;
+            Stock.Quantity = StockQuantity;
+
+            clsStockCollection StockList = new clsStockCollection();
+
+            if (Product_ID == -1)
+            {
+                StockList.ThisStock = Stock;
+
+                StockList.Add();
+            }
+            else
+            {
+                StockList.ThisStock.Find(Product_ID);
+
+                StockList.ThisStock = Stock;
+
+                StockList.Update();
+            }
+
+
             //redirect to the viewer page
             Response.Redirect("StockViewer.aspx");
         }
@@ -72,14 +107,14 @@ public partial class AnAddres : System.Web.UI.Page
         //Var to store the result of the find operation
         Boolean Found = false;
         //get the primary key entered of the find operation
-        Product_Id = Convert.ToInt32(Product_ID.Text);
+        Product_Id = Convert.ToInt32(Product_IDtxt.Text);
         //find the record if it exists
         Found = Stock.Find(Product_Id);
         //if found
         if (Found == true)
         {
             //display the values of the properties
-            Product_ID.Text = Convert.ToString(Stock.Product_ID);
+            Product_IDtxt.Text = Convert.ToString(Stock.Product_ID);
             Product_Name.Text = Stock.Product_Name;
             Product_Type.Text = Stock.Product_Type;
             Product_Description.Text = Stock.Product_Description;

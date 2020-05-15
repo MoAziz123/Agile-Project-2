@@ -88,7 +88,105 @@ namespace UnitTestProject1
             Assert.AreEqual(AllStock.Count, TestList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            
+            //create instance of the collection
+            clsStockCollection AllStock = new clsStockCollection();
+            //creating an item of test data
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 0;
+            //Adding test data
+            TestItem.Product_ID = 2;
+            TestItem.Product_Name = "Protien Powder 2kg WHEY";
+            TestItem.Product_Type = "Protien powder";
+            TestItem.Product_Description = "Each scoop contains 24grams of protien out of the total 31 grams. The protien is from a whey source (dairy).";
+            TestItem.Quantity = 250;
+            TestItem.Price = 55;
+            //set ThisStock to testitems
+            AllStock.ThisStock = TestItem;
+            //add the records
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.Product_ID = PrimaryKey;
+            //find the recrods to verify it worked
+            AllStock.ThisStock.Find(PrimaryKey);
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+        }
 
+        [TestMethod]
+        public void AddDeleteOK()
+        {
+
+            //create instance of the collection
+            clsStockCollection AllStock = new clsStockCollection();
+            //creating an item of test data
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 0;
+            //Adding test data
+            TestItem.Product_ID = 2;
+            TestItem.Product_Name = "Protien Powder 2kg WHEY";
+            TestItem.Product_Type = "Protien powder";
+            TestItem.Product_Description = "Each scoop contains 24grams of protien out of the total 31 grams. The protien is from a whey source (dairy).";
+            TestItem.Quantity = 250;
+            TestItem.Price = 55;
+            //set ThisStock to testitems
+            AllStock.ThisStock = TestItem;
+            //add the records
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.Product_ID = PrimaryKey;
+            //find the recrods to verify it worked
+            AllStock.ThisStock.Find(PrimaryKey);
+
+            AllStock.Delete();
+
+            Boolean Found = AllStock.ThisStock.Find(PrimaryKey);
+
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsStockCollection AllStock = new clsStockCollection();
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 0;
+            TestItem.Product_Name = "Protien Powder 2kg WHEY";
+            TestItem.Product_Type = "Protien powder";
+            TestItem.Product_Description = "Each scoop contains 24grams of protien out of the total 31 grams. The protien is from a whey source (dairy).";
+            TestItem.Quantity = 250;
+            TestItem.Price = 55;
+
+            AllStock.ThisStock = TestItem;
+            PrimaryKey = AllStock.Add();
+
+            TestItem.Product_ID = PrimaryKey;
+
+            TestItem.Product_Name = "25kg x 2 plates";
+            TestItem.Product_Type = "Weights";
+            TestItem.Product_Description = "Heavy ass weights!";
+            TestItem.Quantity = 500;
+            TestItem.Price = 125;
+
+            AllStock.ThisStock = TestItem;
+
+            AllStock.Update();
+
+            AllStock.ThisStock.Find(PrimaryKey);
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+        }
+
+        [TestMethod]
+        public void ReportByProductType()
+        {
+            clsStockCollection FilterStock = new clsStockCollection();
+
+            FilterStock.ReportByProductType("xxxx");
+
+            Assert.AreEqual(0, FilterStock.Count);
+        }
 
     }
 }
