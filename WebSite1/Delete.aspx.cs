@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 public partial class Delete : System.Web.UI.Page
 {
-    Int32 Product_ID
+    Int32 Product_ID;
 
     protected void Page_Load(object sender, EventArgs e)
     {

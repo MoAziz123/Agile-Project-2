@@ -111,7 +111,7 @@ namespace ClassLibrary2
         }
        
 
-        public string valid(int cid, int pid, string pn, bool d, int oq, System.DateTime date_ordered)
+        public string valid(int cid, int pid, string pn,  int oq, bool d, System.DateTime date_ordered)
         {
             string GlobalError = "";
             string CIDError = customerIDvalid(cid);

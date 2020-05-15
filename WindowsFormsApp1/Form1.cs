@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
             order.Order_Quantity = Convert.ToInt32(textBox4.Text);
             order.Dispatch = Convert.ToBoolean(checkBox1.CheckState);
             order.Date_Ordered = Convert.ToDateTime(dateTimePicker1.Text);
-            string Error = order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Dispatch, order.Order_Quantity, order.Date_Ordered);
+            string Error = order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered);
             if(Error == "")
             {
                 col.mthisorder = order;
@@ -63,7 +63,7 @@ namespace WindowsFormsApp1
                     order.Order_Quantity = Convert.ToInt32(textBox4.Text);
                     order.Dispatch = Convert.ToBoolean(checkBox1.CheckState);
                     order.Date_Ordered = Convert.ToDateTime(dateTimePicker1.Text);
-                    string Error = order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Dispatch, order.Order_Quantity, order.Date_Ordered);
+                    string Error = order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered);
                     if (Error == "")
                     {
                         col.mthisorder = order;
