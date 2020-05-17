@@ -128,7 +128,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void MinProduct_Id()
         {
-            int testdata = 0;
+            int testdata = 1;
             order.Product_Id = testdata;
             string error = "";
             Assert.AreEqual(error, order.productIDvalid(order.Product_Id));
@@ -383,7 +383,7 @@ namespace UnitTestProject1
             DateTime testdata = DateTime.Today;
             order.Date_Ordered = testdata;
             string error = "";
-            Assert.AreEqual(error, order.dateTimevalid(order.Date_Ordered));
+            Assert.AreNotEqual(error, order.dateTimevalid(order.Date_Ordered));
         }
         [TestMethod]
         public void ExtremeMaxDate()
