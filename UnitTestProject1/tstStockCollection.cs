@@ -188,5 +188,26 @@ namespace UnitTestProject1
             Assert.AreEqual(0, FilterStock.Count);
         }
 
+        [TestMethod]
+        public void ReportByProductTypeDataFound()
+        {
+            clsStockCollection FilterStock = new clsStockCollection();
+            Boolean Ok = true;
+            FilterStock.ReportByProductType("yyyy");
+            if (FilterStock.Count == 1)
+            {
+                if (FilterStock.StockList[0].Product_ID != 11)
+                {
+                    Ok = false;
+                }
+
+            }
+            else
+            {
+                Ok = false;
+            }
+            Assert.IsTrue(Ok);
+        }
+
     }
 }

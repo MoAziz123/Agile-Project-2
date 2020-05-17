@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,7 +27,7 @@ public partial class _Default : System.Web.UI.Page
         //set the name of the primary key
         LstStockList.DataValueField = "Product_ID";
         //set the data field to display
-        LstStockList.DataValueField = "Product_Name";
+        LstStockList.DataValueField = "Product_Type";
         //bind the data to the list
         LstStockList.DataBind();
     }
@@ -40,7 +41,7 @@ public partial class _Default : System.Web.UI.Page
         //set the name of the primary key
         LstStockList.DataValueField = "Product_ID";
         //set the data field to display
-        LstStockList.DataValueField = "Product_Name";
+        LstStockList.DataValueField = "Product_Type";
         //bind the data to the list
         LstStockList.DataBind();
     }
@@ -81,5 +82,31 @@ public partial class _Default : System.Web.UI.Page
         {
             //display error
         }
+    }
+
+    protected void txtProduct_Type_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Apply_Click(object sender, EventArgs e)
+    {
+        clsStockCollection Stock = new clsStockCollection();
+        Stock.ReportByProductType(txtProduct_Type.Text);
+        LstStockList.DataSource = Stock.StockList;
+        LstStockList.DataValueField = "Product_ID";
+        LstStockList.DataValueField = "Product_Type";
+        LstStockList.DataBind();
+    }
+
+    protected void Clear_Click(object sender, EventArgs e)
+    {
+        clsStockCollection Stock = new clsStockCollection();
+        Stock.ReportByProductType("");
+        txtProduct_Type.Text = "";
+        LstStockList.DataSource = Stock.StockList;
+        LstStockList.DataValueField = "Product_ID";
+        LstStockList.DataValueField = "Product_Type";
+        LstStockList.DataBind();
     }
 }
