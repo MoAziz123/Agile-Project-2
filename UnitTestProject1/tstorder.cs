@@ -40,7 +40,7 @@ namespace UnitTestProject1
             int testdata = 1;
             order.Customer_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.customerIDvalid(order.Customer_Id));
             
         }
         [TestMethod]
@@ -49,7 +49,7 @@ namespace UnitTestProject1
             int testdata = 500000;
             order.Customer_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.customerIDvalid(order.Customer_Id));
 
         }
         [TestMethod]
@@ -58,7 +58,7 @@ namespace UnitTestProject1
             int testdata = 49999;
             order.Customer_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.customerIDvalid(order.Customer_Id));
 
 
         }
@@ -68,7 +68,7 @@ namespace UnitTestProject1
             int testdata = 0;
             order.Customer_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.customerIDvalid(order.Customer_Id));
 
         }
         [TestMethod]
@@ -77,7 +77,7 @@ namespace UnitTestProject1
             int testdata = 500001;
             order.Customer_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.customerIDvalid(order.Customer_Id));
 
         }
         [TestMethod]
@@ -86,7 +86,7 @@ namespace UnitTestProject1
             int testdata = 2;
             order.Customer_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.customerIDvalid(order.Customer_Id));
 
         }
         [TestMethod]
@@ -95,7 +95,7 @@ namespace UnitTestProject1
             int testdata = 25;
             order.Customer_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.customerIDvalid(order.Customer_Id));
 
         }
         [TestMethod]
@@ -104,7 +104,7 @@ namespace UnitTestProject1
             int testdata = -200;
             order.Customer_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.customerIDvalid(order.Customer_Id));
 
         }
         [TestMethod]
@@ -113,7 +113,7 @@ namespace UnitTestProject1
             int testdata = 500000;
             order.Customer_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.customerIDvalid(order.Customer_Id));
 
         }
        
@@ -128,10 +128,10 @@ namespace UnitTestProject1
         [TestMethod]
         public void MinProduct_Id()
         {
-            int testdata = -5;
+            int testdata = 0;
             order.Product_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.productIDvalid(order.Product_Id));
 
         }
         [TestMethod]
@@ -140,7 +140,7 @@ namespace UnitTestProject1
             int testdata = 50000;
             order.Product_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.productIDvalid(order.Product_Id));
 
         }
         [TestMethod]
@@ -149,7 +149,7 @@ namespace UnitTestProject1
             int testdata = 0;
             order.Product_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.productIDvalid(order.Product_Id));
 
         }
         [TestMethod]
@@ -158,7 +158,7 @@ namespace UnitTestProject1
             int testdata = 49999;
             order.Product_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.productIDvalid(order.Product_Id));
 
         }
         [TestMethod]
@@ -167,7 +167,7 @@ namespace UnitTestProject1
             int testdata = 25;
             order.Product_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.productIDvalid(order.Product_Id));
 
         }
         [TestMethod]
@@ -176,7 +176,7 @@ namespace UnitTestProject1
             int testdata = 2;
             order.Product_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.productIDvalid(order.Product_Id));
 
         }
         [TestMethod]
@@ -185,7 +185,7 @@ namespace UnitTestProject1
             int testdata = 500001;
             order.Product_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.productIDvalid(order.Product_Id));
 
         }
         [TestMethod]
@@ -194,7 +194,7 @@ namespace UnitTestProject1
             int testdata = -200;
             order.Product_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.productIDvalid(order.Product_Id));
 
         }
         [TestMethod]
@@ -203,7 +203,7 @@ namespace UnitTestProject1
             int testdata = int.MaxValue;
             order.Product_Id = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.productIDvalid(order.Product_Id));
 
         }
         [TestMethod]
@@ -221,15 +221,15 @@ namespace UnitTestProject1
             string testdata = "A";
             order.Product_Name = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.productNamevalid(order.Product_Name));
         }
         [TestMethod]
         public void MaxProduct_Name()
         {
-            string testdata = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+            string testdata = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             order.Product_Name = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.productNamevalid(order.Product_Name));
         }
         [TestMethod]
         public void MaxPlus1Product_Name()
@@ -237,7 +237,7 @@ namespace UnitTestProject1
             string testdata = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             order.Product_Name = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.productNamevalid(order.Product_Name));
         }
         [TestMethod]
         public void MinPlus1Product_Name()
@@ -245,15 +245,15 @@ namespace UnitTestProject1
             string testdata = "AA";
             order.Product_Name = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.productNamevalid(order.Product_Name));
         }
         [TestMethod]
         public void MaxMinus1Product_Name()
         {
-            string testdata = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+            string testdata = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
             order.Product_Name = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.productNamevalid(order.Product_Name));
         }
         [TestMethod]
         public void ExtremeMinProduct_Name()
@@ -261,7 +261,7 @@ namespace UnitTestProject1
             string testdata = "";
             order.Product_Name = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.productNamevalid(order.Product_Name));
         }
         [TestMethod]
         public void Order_QuantityOK()
@@ -325,7 +325,7 @@ namespace UnitTestProject1
             int testdata = 0;
             order.Order_Quantity = testdata;
             string error = "";
-            Assert.AreEqual(error, order.orderQuantityValid(order.Order_Quantity));
+            Assert.AreNotEqual(error, order.orderQuantityValid(order.Order_Quantity));
         }
         [TestMethod]
         public void DispatchOK()
@@ -336,19 +336,21 @@ namespace UnitTestProject1
             Assert.AreEqual(order.Dispatch, testdata);
 
         }
+        [TestMethod]
         public void MinDispatch()
         {
             bool testdata = false;
             order.Dispatch = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.dispatchValid(order.Dispatch));
         }
+        [TestMethod]
         public void MaxDispatch()
         {
             bool testdata = true;
             order.Dispatch = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.dispatchValid(order.Dispatch));
         }
         [TestMethod]
         public void DateOK()
@@ -365,23 +367,23 @@ namespace UnitTestProject1
             DateTime testdata = DateTime.Now.AddDays(-1);
             order.Date_Ordered = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.dateTimevalid(order.Date_Ordered));
         }
         [TestMethod]
         public void MaxDate()
         {
-            DateTime testdata = DateTime.Now;
+            DateTime testdata = DateTime.Today;
             order.Date_Ordered = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.dateTimevalid(order.Date_Ordered));
         }
         [TestMethod]
         public void MinDate()
         {
-            DateTime testdata = DateTime.Now;
+            DateTime testdata = DateTime.Today;
             order.Date_Ordered = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreEqual(error, order.dateTimevalid(order.Date_Ordered));
         }
         [TestMethod]
         public void ExtremeMaxDate()
@@ -389,15 +391,15 @@ namespace UnitTestProject1
             DateTime testdata = DateTime.Now.AddYears(3000);
             order.Date_Ordered = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.dateTimevalid(order.Date_Ordered));
         }
         [TestMethod]
         public void ExtremeMinDate()
         {
-            DateTime testdata = DateTime.Now.AddYears(-3000);
+            DateTime testdata = DateTime.Now.AddYears(-300);
             order.Date_Ordered = testdata;
             string error = "";
-            Assert.AreEqual(error, order.valid(order.Customer_Id, order.Product_Id, order.Product_Name, order.Order_Quantity, order.Dispatch, order.Date_Ordered));
+            Assert.AreNotEqual(error, order.dateTimevalid(order.Date_Ordered));
         }
         [TestMethod]
         public void FindOK()
