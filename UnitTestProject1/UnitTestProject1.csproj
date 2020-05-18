@@ -49,10 +49,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="tstCustomerCollection.cs" />
     <Compile Include="tstorder.cs" />
     <Compile Include="tstOrderCollection.cs" />
     <Compile Include="tststock.cs" />
     <Compile Include="tstStockCollection.cs" />
+    <Compile Include="tstcustomer.cs" />
     <Compile Include="xclsOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
